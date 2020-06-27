@@ -1,0 +1,18 @@
+target/
+/local
+
+**/.idea
+
+**/.vscode
+
+# Eclipse, Netbeans and IntelliJ files
+!.gitignore
+!.github
+/nbproject
+/*.ipr
+/*.iws
+*.iml
+.settings/
+.project
+.classpath
+.factorypath

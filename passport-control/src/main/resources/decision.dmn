@@ -1,0 +1,111 @@
+<dmn:definitions xmlns:dmn="http://www.omg.org/spec/DMN/20180521/MODEL/" xmlns="https://kiegroup.org/dmn/org/kogito/passportcontrol" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:kie="http://www.drools.org/kie/dmn/1.2" xmlns:dmndi="http://www.omg.org/spec/DMN/20180521/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:feel="http://www.omg.org/spec/DMN/20180521/FEEL/" id="_6AD36C87-AA43-4C0B-A593-560F57E2A5BC" name="decision" typeLanguage="http://www.omg.org/spec/DMN/20180521/FEEL/" namespace="https://kiegroup.org/dmn/org/kogito/passportcontrol">
+  <dmn:extensionElements/>
+  <dmn:inputData id="_96DACF9E-FA83-47DF-93D1-A6BE80D2AC4F" name="wantedFromPolice">
+    <dmn:extensionElements/>
+    <dmn:variable id="_2B849DC6-8860-4641-AFCA-748F8272290D" name="wantedFromPolice"/>
+  </dmn:inputData>
+  <dmn:inputData id="_2C9731A2-90B6-4346-95CE-A27268F002F0" name="ticket">
+    <dmn:extensionElements/>
+    <dmn:variable id="_3857E0AF-DB0A-460C-B077-F817845AF853" name="ticket"/>
+  </dmn:inputData>
+  <dmn:decision id="_0F7A426E-6305-4FF9-B6E8-2AE3F731CC9A" name="autorized">
+    <dmn:extensionElements/>
+    <dmn:variable id="_11FCDC5D-A623-4092-869B-8F71C82D134C" name="autorized"/>
+    <dmn:informationRequirement id="_5D35A146-0D4D-4661-A927-280B6C7A8C6A">
+      <dmn:requiredInput href="#_96DACF9E-FA83-47DF-93D1-A6BE80D2AC4F"/>
+    </dmn:informationRequirement>
+    <dmn:informationRequirement id="_C328CA5D-937F-4456-8F8F-1F521EDD835C">
+      <dmn:requiredDecision href="#_D84EBC17-3D83-4756-AEDA-E412F4CCB3EF"/>
+    </dmn:informationRequirement>
+  </dmn:decision>
+  <dmn:decision id="_D84EBC17-3D83-4756-AEDA-E412F4CCB3EF" name="riskScore">
+    <dmn:extensionElements/>
+    <dmn:variable id="_BBC53359-6A17-450F-ABDB-1253FAF0F0F5" name="riskScore"/>
+    <dmn:informationRequirement id="_4B9CA84A-EDE9-47C9-8E49-41F0C91A5E0A">
+      <dmn:requiredInput href="#_2C9731A2-90B6-4346-95CE-A27268F002F0"/>
+    </dmn:informationRequirement>
+    <dmn:knowledgeRequirement id="_419A0D2A-A69C-4B47-B60B-551FCB447B59">
+      <dmn:requiredKnowledge href="#_38C36BFF-B569-4D92-8456-8A7F036FD144"/>
+    </dmn:knowledgeRequirement>
+  </dmn:decision>
+  <dmn:businessKnowledgeModel id="_38C36BFF-B569-4D92-8456-8A7F036FD144" name="risk score function">
+    <dmn:extensionElements/>
+    <dmn:variable id="_1C23E90D-F2DA-4C6F-9491-96424524AFCC" name="risk score function"/>
+    <dmn:encapsulatedLogic id="_13FB063C-6B5C-4DE3-8416-7372AA186523" kind="FEEL">
+      <dmn:literalExpression id="_1ECD668E-A952-4863-A35E-C4B308F30CAF">
+        <dmn:text/>
+      </dmn:literalExpression>
+    </dmn:encapsulatedLogic>
+  </dmn:businessKnowledgeModel>
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram>
+      <di:extension>
+        <kie:ComponentsWidthsExtension>
+          <kie:ComponentWidths dmnElementRef="_1ECD668E-A952-4863-A35E-C4B308F30CAF"/>
+          <kie:ComponentWidths dmnElementRef="_13FB063C-6B5C-4DE3-8416-7372AA186523"/>
+        </kie:ComponentsWidthsExtension>
+      </di:extension>
+      <dmndi:DMNShape xmlns:p0="https://kiegroup.org/dmn/org/kie/kogito/homeautomation/playlist" id="dmnshape-_96DACF9E-FA83-47DF-93D1-A6BE80D2AC4F" dmnElementRef="p0:_96DACF9E-FA83-47DF-93D1-A6BE80D2AC4F" isCollapsed="false">
+        <dmndi:DMNStyle>
+          <dmndi:FillColor red="255" green="255" blue="255"/>
+          <dmndi:StrokeColor red="0" green="0" blue="0"/>
+          <dmndi:FontColor red="0" green="0" blue="0"/>
+        </dmndi:DMNStyle>
+        <dc:Bounds x="76" y="319" width="100" height="50"/>
+        <dmndi:DMNLabel/>
+      </dmndi:DMNShape>
+      <dmndi:DMNShape xmlns:p1="https://kiegroup.org/dmn/org/kie/kogito/homeautomation/playlist" id="dmnshape-_2C9731A2-90B6-4346-95CE-A27268F002F0" dmnElementRef="p1:_2C9731A2-90B6-4346-95CE-A27268F002F0" isCollapsed="false">
+        <dmndi:DMNStyle>
+          <dmndi:FillColor red="255" green="255" blue="255"/>
+          <dmndi:StrokeColor red="0" green="0" blue="0"/>
+          <dmndi:FontColor red="0" green="0" blue="0"/>
+        </dmndi:DMNStyle>
+        <dc:Bounds x="283" y="319" width="100" height="50"/>
+        <dmndi:DMNLabel/>
+      </dmndi:DMNShape>
+      <dmndi:DMNShape xmlns:p2="https://kiegroup.org/dmn/org/kie/kogito/homeautomation/playlist" id="dmnshape-_0F7A426E-6305-4FF9-B6E8-2AE3F731CC9A" dmnElementRef="p2:_0F7A426E-6305-4FF9-B6E8-2AE3F731CC9A" isCollapsed="false">
+        <dmndi:DMNStyle>
+          <dmndi:FillColor red="255" green="255" blue="255"/>
+          <dmndi:StrokeColor red="0" green="0" blue="0"/>
+          <dmndi:FontColor red="0" green="0" blue="0"/>
+        </dmndi:DMNStyle>
+        <dc:Bounds x="171" y="54" width="100" height="50"/>
+        <dmndi:DMNLabel/>
+      </dmndi:DMNShape>
+      <dmndi:DMNShape xmlns:p3="https://kiegroup.org/dmn/org/kie/kogito/homeautomation/playlist" id="dmnshape-_D84EBC17-3D83-4756-AEDA-E412F4CCB3EF" dmnElementRef="p3:_D84EBC17-3D83-4756-AEDA-E412F4CCB3EF" isCollapsed="false">
+        <dmndi:DMNStyle>
+          <dmndi:FillColor red="255" green="255" blue="255"/>
+          <dmndi:StrokeColor red="0" green="0" blue="0"/>
+          <dmndi:FontColor red="0" green="0" blue="0"/>
+        </dmndi:DMNStyle>
+        <dc:Bounds x="243" y="187" width="100" height="50"/>
+        <dmndi:DMNLabel/>
+      </dmndi:DMNShape>
+      <dmndi:DMNShape xmlns:p4="https://kiegroup.org/dmn/org/kie/kogito/homeautomation/playlist" id="dmnshape-_38C36BFF-B569-4D92-8456-8A7F036FD144" dmnElementRef="p4:_38C36BFF-B569-4D92-8456-8A7F036FD144" isCollapsed="false">
+        <dmndi:DMNStyle>
+          <dmndi:FillColor red="255" green="255" blue="255"/>
+          <dmndi:StrokeColor red="0" green="0" blue="0"/>
+          <dmndi:FontColor red="0" green="0" blue="0"/>
+        </dmndi:DMNStyle>
+        <dc:Bounds x="513" y="175" width="100" height="50"/>
+        <dmndi:DMNLabel/>
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge xmlns:p5="https://kiegroup.org/dmn/org/kie/kogito/homeautomation/playlist" id="dmnedge-_5D35A146-0D4D-4661-A927-280B6C7A8C6A" dmnElementRef="p5:_5D35A146-0D4D-4661-A927-280B6C7A8C6A">
+        <di:waypoint x="176" y="344"/>
+        <di:waypoint x="171" y="79"/>
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge xmlns:p6="https://kiegroup.org/dmn/org/kie/kogito/homeautomation/playlist" id="dmnedge-_C328CA5D-937F-4456-8F8F-1F521EDD835C" dmnElementRef="p6:_C328CA5D-937F-4456-8F8F-1F521EDD835C">
+        <di:waypoint x="293" y="212"/>
+        <di:waypoint x="221" y="104"/>
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge xmlns:p7="https://kiegroup.org/dmn/org/kie/kogito/homeautomation/playlist" id="dmnedge-_4B9CA84A-EDE9-47C9-8E49-41F0C91A5E0A" dmnElementRef="p7:_4B9CA84A-EDE9-47C9-8E49-41F0C91A5E0A">
+        <di:waypoint x="383" y="344"/>
+        <di:waypoint x="243" y="212"/>
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge xmlns:p8="https://kiegroup.org/dmn/org/kie/kogito/homeautomation/playlist" id="dmnedge-_419A0D2A-A69C-4B47-B60B-551FCB447B59" dmnElementRef="p8:_419A0D2A-A69C-4B47-B60B-551FCB447B59">
+        <di:waypoint x="563" y="200"/>
+        <di:waypoint x="293" y="212"/>
+      </dmndi:DMNEdge>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</dmn:definitions>
