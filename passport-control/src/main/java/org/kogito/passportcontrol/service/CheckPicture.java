@@ -19,16 +19,16 @@ public class CheckPicture extends AbstractPassportControlService {
     @Inject
     RestService service;
 
-    @ConfigProperty(name = "camera.host", defaultValue = "localhost")
+//    @ConfigProperty(name = "camera.host", defaultValue = "localhost")
     protected String host;
 
-    @ConfigProperty(name = "camera.port", defaultValue = "8080")
+//    @ConfigProperty(name = "camera.port", defaultValue = "8080")
     protected int port;
 
-    @ConfigProperty(name = "camera.ssl", defaultValue = "false")
+//    @ConfigProperty(name = "camera.ssl", defaultValue = "false")
     protected boolean ssl;
 
-    @ConfigProperty(name = "camera.endpoint")
+//    @ConfigProperty(name = "camera.endpoint")
     protected String endpoint;
 
     public void checkPicture(String id, PassengerPicture passengerPicture) {

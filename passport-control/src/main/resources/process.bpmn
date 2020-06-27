@@ -1,5 +1,4 @@
-<bpmn2:definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bpmn2="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:bpsim="http://www.bpsim.org/schemas/1.0" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:drools="http://www.jboss.org/drools" id="_KVfRQJp8EDidzf62b58g7Q" exporter="jBPM Process Modeler" exporterVersion="2.0" targetNamespace="http://www.omg.org/bpmn20">
-  <bpmn2:itemDefinition id="_messageItem" structureRef="org.kie.kogito.homeautomation.Message"/>
+<bpmn2:definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bpmn2="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:bpsim="http://www.bpsim.org/schemas/1.0" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:drools="http://www.jboss.org/drools" id="_BQzSwJp-EDiRYPBkZwxwhQ" exporter="jBPM Process Modeler" exporterVersion="2.0" targetNamespace="http://www.omg.org/bpmn20">
   <bpmn2:itemDefinition id="_instanceIdItem" structureRef="String"/>
   <bpmn2:itemDefinition id="_passengerPictureItem" structureRef="org.kogito.passportcontrol.model.PassengerPicture"/>
   <bpmn2:itemDefinition id="_passengerInfoItem" structureRef="org.kogito.passportcontrol.model.PassengerInfo"/>
@@ -21,7 +20,7 @@
   <bpmn2:itemDefinition id="__A63FA50D-C800-429F-96D6-53678F3563D8_NotStartedNotifyInputXItem" structureRef="Object"/>
   <bpmn2:itemDefinition id="__A63FA50D-C800-429F-96D6-53678F3563D8_NotCompletedNotifyInputXItem" structureRef="Object"/>
   <bpmn2:itemDefinition id="__3609FDB0-2D35-43E7-B546-937C6A42C18C_idInputXItem" structureRef="String"/>
-  <bpmn2:itemDefinition id="__3609FDB0-2D35-43E7-B546-937C6A42C18C_passengerPictureInputXItem" structureRef="org.kogito.passportcontrol.PassengerPicture"/>
+  <bpmn2:itemDefinition id="__3609FDB0-2D35-43E7-B546-937C6A42C18C_passengerPictureInputXItem" structureRef="org.kogito.passportcontrol.model.PassengerPicture"/>
   <bpmn2:itemDefinition id="__2950087F-ADD5-416F-B257-F90CF4D203F8_namespaceInputXItem" structureRef="java.lang.String"/>
   <bpmn2:itemDefinition id="__2950087F-ADD5-416F-B257-F90CF4D203F8_modelInputXItem" structureRef="java.lang.String"/>
   <bpmn2:itemDefinition id="__2950087F-ADD5-416F-B257-F90CF4D203F8_decisionInputXItem" structureRef="java.lang.String"/>
@@ -55,7 +54,6 @@
     <bpmn2:operation id="_A04A72A2-157D-41E4-91EA-7C70747ADDEB_ServiceOperation" name="display" implementationRef="display"/>
   </bpmn2:interface>
   <bpmn2:process id="PassportControl" drools:packageName="org.kogito.passportcontrol" drools:version="1.0" drools:adHoc="false" name="passport-control" isExecutable="true" processType="Public">
-    <bpmn2:property id="message" itemSubjectRef="_messageItem" name="message"/>
     <bpmn2:property id="instanceId" itemSubjectRef="_instanceIdItem" name="instanceId"/>
     <bpmn2:property id="passengerPicture" itemSubjectRef="_passengerPictureItem" name="passengerPicture"/>
     <bpmn2:property id="passengerInfo" itemSubjectRef="_passengerInfoItem" name="passengerInfo"/>
@@ -71,6 +69,7 @@
           <drools:metaValue><![CDATA[No]]></drools:metaValue>
         </drools:metaData>
       </bpmn2:extensionElements>
+      <bpmn2:conditionExpression xsi:type="bpmn2:tFormalExpression" language="http://www.java.com/java"><![CDATA[return !autorized]]></bpmn2:conditionExpression>
     </bpmn2:sequenceFlow>
     <bpmn2:sequenceFlow id="_2496381E-87FC-4B36-AA91-D67821A20F3D" name="Yes" sourceRef="_82171973-CF5A-43FA-A6FB-E3D7E63C1A0F" targetRef="_0A7FC2CA-1A1B-48EE-BEB0-AAE7CF5CBBB3">
       <bpmn2:extensionElements>
@@ -78,6 +77,7 @@
           <drools:metaValue><![CDATA[Yes]]></drools:metaValue>
         </drools:metaData>
       </bpmn2:extensionElements>
+      <bpmn2:conditionExpression xsi:type="bpmn2:tFormalExpression" language="http://www.java.com/java"><![CDATA[return autorized;]]></bpmn2:conditionExpression>
     </bpmn2:sequenceFlow>
     <bpmn2:sequenceFlow id="_7CE640ED-D84F-4837-9235-6F83EFA9E2AC" name="Yes" sourceRef="_CB9B4ED5-0362-4DB9-86AD-3047269EBB3C" targetRef="_0A7FC2CA-1A1B-48EE-BEB0-AAE7CF5CBBB3">
       <bpmn2:extensionElements>
@@ -85,6 +85,7 @@
           <drools:metaValue><![CDATA[Yes]]></drools:metaValue>
         </drools:metaData>
       </bpmn2:extensionElements>
+      <bpmn2:conditionExpression xsi:type="bpmn2:tFormalExpression" language="http://www.java.com/java"><![CDATA[return autorized;]]></bpmn2:conditionExpression>
     </bpmn2:sequenceFlow>
     <bpmn2:sequenceFlow id="_A0AC539F-4F7F-4702-850E-E44480B5ED7D" sourceRef="_C6AEE2AE-E582-410B-B32E-64F25C070C96" targetRef="_82171973-CF5A-43FA-A6FB-E3D7E63C1A0F"/>
     <bpmn2:sequenceFlow id="_90639DE0-9819-4127-87E4-E7B8B663F69B" name="No" sourceRef="_CB9B4ED5-0362-4DB9-86AD-3047269EBB3C" targetRef="_C6AEE2AE-E582-410B-B32E-64F25C070C96">
@@ -99,6 +100,7 @@
           <drools:metaValue><![CDATA[No]]></drools:metaValue>
         </drools:metaData>
       </bpmn2:extensionElements>
+      <bpmn2:conditionExpression xsi:type="bpmn2:tFormalExpression" language="http://www.java.com/java"><![CDATA[return !autorized;]]></bpmn2:conditionExpression>
     </bpmn2:sequenceFlow>
     <bpmn2:sequenceFlow id="_5FB93375-19F2-4509-8420-6E22F4D9D725" sourceRef="_31BD426F-C5CF-4110-B05A-ECDDECDBAF22" targetRef="_ECD9EB2E-1953-4225-89DF-46184AA550D4">
       <bpmn2:extensionElements>
@@ -326,7 +328,7 @@
       <bpmn2:outgoing>_34A3E5BE-90F6-4916-B371-1A25D406CB36</bpmn2:outgoing>
       <bpmn2:ioSpecification>
         <bpmn2:dataInput id="_3609FDB0-2D35-43E7-B546-937C6A42C18C_idInputX" drools:dtype="String" itemSubjectRef="__3609FDB0-2D35-43E7-B546-937C6A42C18C_idInputXItem" name="id"/>
-        <bpmn2:dataInput id="_3609FDB0-2D35-43E7-B546-937C6A42C18C_passengerPictureInputX" drools:dtype="org.kogito.passportcontrol.PassengerPicture" itemSubjectRef="__3609FDB0-2D35-43E7-B546-937C6A42C18C_passengerPictureInputXItem" name="passengerPicture"/>
+        <bpmn2:dataInput id="_3609FDB0-2D35-43E7-B546-937C6A42C18C_passengerPictureInputX" drools:dtype="org.kogito.passportcontrol.model.PassengerPicture" itemSubjectRef="__3609FDB0-2D35-43E7-B546-937C6A42C18C_passengerPictureInputXItem" name="passengerPicture"/>
         <bpmn2:inputSet>
           <bpmn2:dataInputRefs>_3609FDB0-2D35-43E7-B546-937C6A42C18C_idInputX</bpmn2:dataInputRefs>
           <bpmn2:dataInputRefs>_3609FDB0-2D35-43E7-B546-937C6A42C18C_passengerPictureInputX</bpmn2:dataInputRefs>
@@ -642,7 +644,7 @@
         </bpsim:Scenario>
       </bpsim:BPSimData>
     </bpmn2:extensionElements>
-    <bpmn2:source>_KVfRQJp8EDidzf62b58g7Q</bpmn2:source>
-    <bpmn2:target>_KVfRQJp8EDidzf62b58g7Q</bpmn2:target>
+    <bpmn2:source>_BQzSwJp-EDiRYPBkZwxwhQ</bpmn2:source>
+    <bpmn2:target>_BQzSwJp-EDiRYPBkZwxwhQ</bpmn2:target>
   </bpmn2:relationship>
 </bpmn2:definitions>

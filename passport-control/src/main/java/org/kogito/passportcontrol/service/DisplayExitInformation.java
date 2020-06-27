@@ -21,16 +21,16 @@ public class DisplayExitInformation extends AbstractPassportControlService {
     @Inject
     protected RestService service;
 
-    @ConfigProperty(name = "recognition.service.host", defaultValue = "localhost")
+//    @ConfigProperty(name = "recognition.service.host", defaultValue = "localhost")
     protected String host;
 
-    @ConfigProperty(name = "recognition.service.port", defaultValue = "8080")
+//    @ConfigProperty(name = "recognition.service.port", defaultValue = "8080")
     protected int port;
 
-    @ConfigProperty(name = "recognition.service.ssl", defaultValue = "false")
+//    @ConfigProperty(name = "recognition.service.ssl", defaultValue = "false")
     protected boolean ssl;
 
-    @ConfigProperty(name = "recognition.service.endpoint")
+//    @ConfigProperty(name = "recognition.service.endpoint")
     protected String endpoint;
 
     public void display() {

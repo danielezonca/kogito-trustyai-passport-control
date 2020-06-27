@@ -20,16 +20,16 @@ public class DisplayGateInformation extends AbstractPassportControlService {
     @Inject
     protected RestService service;
 
-    @ConfigProperty(name = "player.host", defaultValue = "localhost")
+//    @ConfigProperty(name = "player.host", defaultValue = "localhost")
     protected String host;
 
-    @ConfigProperty(name = "player.port", defaultValue = "8080")
+//    @ConfigProperty(name = "player.port", defaultValue = "8080")
     protected int port;
 
-    @ConfigProperty(name = "player.ssl", defaultValue = "false")
+//    @ConfigProperty(name = "player.ssl", defaultValue = "false")
     protected boolean ssl;
 
-    @ConfigProperty(name = "player.endpoint")
+//    @ConfigProperty(name = "player.endpoint")
     protected String endpoint;
 
     public void display(Ticket ticket) {
