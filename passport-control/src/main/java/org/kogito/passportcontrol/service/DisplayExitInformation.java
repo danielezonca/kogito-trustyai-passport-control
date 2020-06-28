@@ -18,9 +18,6 @@ public class DisplayExitInformation extends AbstractPassportControlService {
     private static final String name = "file";
     private static final String unknown = "unknown";
 
-    @Inject
-    protected RestService service;
-
 //    @ConfigProperty(name = "recognition.service.host", defaultValue = "localhost")
     protected String host;
 
@@ -33,17 +30,19 @@ public class DisplayExitInformation extends AbstractPassportControlService {
 //    @ConfigProperty(name = "recognition.service.endpoint")
     protected String endpoint;
 
+
+
     public void display() {
-        LOGGER.info("RecognitionService.recognize");
+        LOGGER.info("Display Exit Information");
         var request = of(host, port, ssl, endpoint);
         var postData = PostData.of(name, fileName, null /* imageData.getImage() */, CONTENT_TYPE);
-        service.POSTForm(request, postData, rawQuote -> {
-            LOGGER.info("result " + rawQuote.bodyAsString());
-            var matches = rawQuote.bodyAsJsonObject().getJsonArray("faces");
-            var user = extractMatchName(matches);
-            LOGGER.info("Recognized user: " + user);
-            // signalToProcess(id, "receive-user", user);
-        });
+//        service.POSTForm(request, postData, rawQuote -> {
+//            LOGGER.info("result " + rawQuote.bodyAsString());
+//            var matches = rawQuote.bodyAsJsonObject().getJsonArray("faces");
+//            var user = extractMatchName(matches);
+//            LOGGER.info("Recognized user: " + user);
+//            // signalToProcess(id, "receive-user", user);
+//        });
     }
 
     protected String extractMatchName(JsonArray matches) {

@@ -13,12 +13,9 @@ import static io.vertx.core.json.Json.encode;
 import static org.kogito.passportcontrol.util.RestRequest.of;
 
 @ApplicationScoped
-public class DisplayGateInformation extends AbstractPassportControlService {
+public class DisplayWelcomeInformation extends AbstractPassportControlService {
 
     private final static String CONTENT_TYPE = "text/plain";
-
-    @Inject
-    protected RestService service;
 
 //    @ConfigProperty(name = "player.host", defaultValue = "localhost")
     protected String host;
@@ -33,7 +30,7 @@ public class DisplayGateInformation extends AbstractPassportControlService {
     protected String endpoint;
 
     public void display(Ticket ticket) {
-        LOGGER.info("Player.play");
+        LOGGER.info("Display Welcome Information");
         var messageMap = Map.of(); //Map.of("message", formatMessage(user, playlist), "query", canvas);
         var message = encode(messageMap);
         // var request = of(host, port, ssl, endpoint);

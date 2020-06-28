@@ -10,14 +10,12 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.Base64;
+import java.util.concurrent.CompletableFuture;
 
 import static org.kogito.passportcontrol.util.RestRequest.of;
 
 @ApplicationScoped
 public class CheckPicture extends AbstractPassportControlService {
-
-    @Inject
-    RestService service;
 
 //    @ConfigProperty(name = "camera.host", defaultValue = "localhost")
     protected String host;
@@ -32,22 +30,26 @@ public class CheckPicture extends AbstractPassportControlService {
     protected String endpoint;
 
     public void checkPicture(String id, PassengerPicture passengerPicture) {
-        LOGGER.info("Camera.takePicture");
+        LOGGER.info("CheckPicture");
+        LOGGER.info("id" + id);
         var request = of(host, port, ssl, endpoint);
-        service.GET(request, httpResponse -> {
-            try {
-                // Enable service
-                var imageBytes = httpResponse.body().getBytes();
-                // var imageBytes = Files.readAllBytes(Paths.get("../../testImages/bradPitt_3.jpg"));
-                // var imageBytes = Files.readAllBytes(Paths.get("../../testImages/angelinaJolie_3.jpg"));
-                // var imageBytes = Files.readAllBytes(Paths.get("../../testImages/nicolasCage_3.jpg"));
-                // var imageBytes = Files.readAllBytes(Paths.get("../../testImages/jackNicholson_1.jpg"));
-                var imageAsBase64 = Base64.getEncoder().encodeToString(imageBytes);
-                // var imageData = new ImageData(imageAsBase64);
-                // signalToProcess(id, "receive-picture", imageData);
-            } catch (Exception e) {
-                LOGGER.error(e.getMessage(), e);
-            }
-        });
+
+        CompletableFuture.runAsync(() -> signalToProcess(id, "check-picture", true));
+//
+//        service.GET(request, httpResponse -> {
+//            try {
+//                // Enable service
+//                var imageBytes = httpResponse.body().getBytes();
+//                // var imageBytes = Files.readAllBytes(Paths.get("../../testImages/bradPitt_3.jpg"));
+//                // var imageBytes = Files.readAllBytes(Paths.get("../../testImages/angelinaJolie_3.jpg"));
+//                // var imageBytes = Files.readAllBytes(Paths.get("../../testImages/nicolasCage_3.jpg"));
+//                // var imageBytes = Files.readAllBytes(Paths.get("../../testImages/jackNicholson_1.jpg"));
+//                var imageAsBase64 = Base64.getEncoder().encodeToString(imageBytes);
+//                // var imageData = new ImageData(imageAsBase64);
+//                // signalToProcess(id, "receive-picture", imageData);
+//            } catch (Exception e) {
+//                LOGGER.error(e.getMessage(), e);
+//            }
+//        });
     }
 }
