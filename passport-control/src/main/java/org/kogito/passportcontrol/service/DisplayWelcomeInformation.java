@@ -29,7 +29,7 @@ public class DisplayWelcomeInformation extends AbstractPassportControlService {
 //    @ConfigProperty(name = "player.endpoint")
     protected String endpoint;
 
-    public void display(Ticket ticket) {
+    public void display(String ticketFrom, String ticketTo) {
         LOGGER.info("Display Welcome Information");
         var messageMap = Map.of(); //Map.of("message", formatMessage(user, playlist), "query", canvas);
         var message = encode(messageMap);
