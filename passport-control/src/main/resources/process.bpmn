@@ -1,4 +1,4 @@
-<bpmn2:definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bpmn2="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:bpsim="http://www.bpsim.org/schemas/1.0" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:drools="http://www.jboss.org/drools" id="_WPplIJxIEDinedulKeryBg" exporter="jBPM Process Modeler" exporterVersion="2.0" targetNamespace="http://www.omg.org/bpmn20">
+<bpmn2:definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bpmn2="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:bpsim="http://www.bpsim.org/schemas/1.0" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:drools="http://www.jboss.org/drools" id="_YERkYJ0MEDitUqDrL_eGUQ" exporter="jBPM Process Modeler" exporterVersion="2.0" targetNamespace="http://www.omg.org/bpmn20">
   <bpmn2:itemDefinition id="__32DD1B80-F291-4EC6-82CF-C66B06EB2BB5_SkippableInputXItem" structureRef="Object"/>
   <bpmn2:itemDefinition id="__32DD1B80-F291-4EC6-82CF-C66B06EB2BB5_PriorityInputXItem" structureRef="Object"/>
   <bpmn2:itemDefinition id="__32DD1B80-F291-4EC6-82CF-C66B06EB2BB5_CommentInputXItem" structureRef="Object"/>
@@ -51,16 +51,6 @@
       </bpmn2:extensionElements>
     </bpmn2:sequenceFlow>
     <bpmn2:sequenceFlow id="_737158A9-DC39-4238-9DD8-1DB517EE597B" sourceRef="_2846D6C1-C194-47ED-B797-0583CB09FB22" targetRef="_34956B4F-0C1D-49AE-8638-F7FCEF33E2AC"/>
-    <bpmn2:sequenceFlow id="_0BA9B26D-E097-41F6-AD62-9F083C556B42" name="Cannot Identify Automatically" sourceRef="_0AFA1D06-F874-41F5-869A-760971F93C61" targetRef="_2846D6C1-C194-47ED-B797-0583CB09FB22">
-      <bpmn2:extensionElements>
-        <drools:metaData name="isAutoConnection.target">
-          <drools:metaValue><![CDATA[true]]></drools:metaValue>
-        </drools:metaData>
-        <drools:metaData name="elementname">
-          <drools:metaValue><![CDATA[Cannot Identify Automatically]]></drools:metaValue>
-        </drools:metaData>
-      </bpmn2:extensionElements>
-    </bpmn2:sequenceFlow>
     <bpmn2:sequenceFlow id="_777B9D40-AD77-4CC4-9F60-6C72A31063B0" name="Identification Successful" sourceRef="_0AFA1D06-F874-41F5-869A-760971F93C61" targetRef="_984CE7D7-1CEA-4F39-B03E-2AC9A81016A8">
       <bpmn2:extensionElements>
         <drools:metaData name="isAutoConnection.target">
@@ -80,6 +70,16 @@
 
 
 Identification Successful]]></drools:metaValue>
+        </drools:metaData>
+      </bpmn2:extensionElements>
+    </bpmn2:sequenceFlow>
+    <bpmn2:sequenceFlow id="_0BA9B26D-E097-41F6-AD62-9F083C556B42" name="Cannot Identify Automatically" sourceRef="_0AFA1D06-F874-41F5-869A-760971F93C61" targetRef="_2846D6C1-C194-47ED-B797-0583CB09FB22">
+      <bpmn2:extensionElements>
+        <drools:metaData name="isAutoConnection.target">
+          <drools:metaValue><![CDATA[true]]></drools:metaValue>
+        </drools:metaData>
+        <drools:metaData name="elementname">
+          <drools:metaValue><![CDATA[Cannot Identify Automatically]]></drools:metaValue>
         </drools:metaData>
       </bpmn2:extensionElements>
     </bpmn2:sequenceFlow>
@@ -188,14 +188,14 @@ Passenger May Proceed]]></drools:metaValue>
     </bpmn2:userTask>
     <bpmn2:exclusiveGateway id="_0AFA1D06-F874-41F5-869A-760971F93C61" gatewayDirection="Diverging">
       <bpmn2:incoming>_9D134FD3-503F-47C8-AAFD-3378BC1FE245</bpmn2:incoming>
-      <bpmn2:outgoing>_777B9D40-AD77-4CC4-9F60-6C72A31063B0</bpmn2:outgoing>
       <bpmn2:outgoing>_0BA9B26D-E097-41F6-AD62-9F083C556B42</bpmn2:outgoing>
+      <bpmn2:outgoing>_777B9D40-AD77-4CC4-9F60-6C72A31063B0</bpmn2:outgoing>
     </bpmn2:exclusiveGateway>
-    <bpmn2:businessRuleTask id="_E1E5C7C7-7D34-46A2-9C24-9D5BC57505F9" drools:ruleFlowGroup="" name="Passenger&#10;Identifier" implementation="http://www.jboss.org/drools/rule">
+    <bpmn2:businessRuleTask id="_E1E5C7C7-7D34-46A2-9C24-9D5BC57505F9" drools:ruleFlowGroup="" name="Passenger&#10;Identification" implementation="http://www.jboss.org/drools/rule">
       <bpmn2:extensionElements>
         <drools:metaData name="elementname">
           <drools:metaValue><![CDATA[Passenger
-Identifier]]></drools:metaValue>
+Identification]]></drools:metaValue>
         </drools:metaData>
       </bpmn2:extensionElements>
       <bpmn2:incoming>_C7290F48-DDE6-49EF-B1F4-1E919F75C0E8</bpmn2:incoming>
@@ -313,14 +313,14 @@ Passport]]></drools:metaValue>
         <di:waypoint x="340" y="246"/>
         <di:waypoint x="368" y="350"/>
       </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="edge_shape__0AFA1D06-F874-41F5-869A-760971F93C61_to_shape__2846D6C1-C194-47ED-B797-0583CB09FB22" bpmnElement="_0BA9B26D-E097-41F6-AD62-9F083C556B42">
+        <di:waypoint x="368" y="350"/>
+        <di:waypoint x="546" y="350"/>
+      </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="edge_shape__0AFA1D06-F874-41F5-869A-760971F93C61_to_shape__984CE7D7-1CEA-4F39-B03E-2AC9A81016A8" bpmnElement="_777B9D40-AD77-4CC4-9F60-6C72A31063B0">
         <di:waypoint x="340" y="378"/>
         <di:waypoint x="340" y="543"/>
         <di:waypoint x="780" y="543"/>
-      </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="edge_shape__0AFA1D06-F874-41F5-869A-760971F93C61_to_shape__2846D6C1-C194-47ED-B797-0583CB09FB22" bpmnElement="_0BA9B26D-E097-41F6-AD62-9F083C556B42">
-        <di:waypoint x="368" y="350"/>
-        <di:waypoint x="546" y="350"/>
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="edge_shape__2846D6C1-C194-47ED-B797-0583CB09FB22_to_shape__34956B4F-0C1D-49AE-8638-F7FCEF33E2AC" bpmnElement="_737158A9-DC39-4238-9DD8-1DB517EE597B">
         <di:waypoint x="700" y="350"/>
@@ -451,7 +451,7 @@ Passport]]></drools:metaValue>
         </bpsim:Scenario>
       </bpsim:BPSimData>
     </bpmn2:extensionElements>
-    <bpmn2:source>_WPplIJxIEDinedulKeryBg</bpmn2:source>
-    <bpmn2:target>_WPplIJxIEDinedulKeryBg</bpmn2:target>
+    <bpmn2:source>_YERkYJ0MEDitUqDrL_eGUQ</bpmn2:source>
+    <bpmn2:target>_YERkYJ0MEDitUqDrL_eGUQ</bpmn2:target>
   </bpmn2:relationship>
 </bpmn2:definitions>
